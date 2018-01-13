@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SidebarExample from './Components/SidebarExample'
-import VectorLayersExample from './Components/VectorLayersExample'
-import BenthicMap from './Components/BenthicMap'
+
+import MapContainer from './Containers/MapContainer'
 
 
 class App extends Component {
   render() {
     return (
-      <BenthicMap />
+      <MapContainer />
     );
   }
 }
