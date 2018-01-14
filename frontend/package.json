@@ -9,6 +9,8 @@
     "react-dom": "^16.2.0",
     "react-leaflet": "^1.7.8",
     "react-leaflet-sidebarv2": "^0.5.1",
+    "react-materialize": "^1.1.2",
+    "react-radio-group": "^3.0.2",
     "react-scripts": "1.0.17"
   },
   "scripts": {

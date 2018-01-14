@@ -28,7 +28,7 @@ class BenthicMap extends Component {
   }
 
   computeMarkerSize(entry) {
-    // console.log('entry, ', entry[this.props.coverType]/2)
+    console.log('radius is for, ', this.props.coverType);
     return entry[this.props.coverType]/2;
   }
  
@@ -40,8 +40,12 @@ class BenthicMap extends Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         { this.props.benthicData.map((entry, i) => {
-          if ((entry.Latitude !== null) && (entry.Longitude !== null)) {
-            return <Circle center={[entry.Latitude, entry.Longitude]} color={this.determineMarkerColor(entry)} radius={this.computeMarkerSize(entry)} />
+          if ((entry.Latitude !== null) && (entry.Longitude !== null) && (entry.Year === this.props.filterYear)) {
+            return <CircleMarker center={[entry.Latitude, entry.Longitude]} color={this.determineMarkerColor(entry)} radius={this.computeMarkerSize(entry)}>
+              <Popup>
+                  <span>Radius is for: {this.props.coverType} </span>
+              </Popup>
+            </CircleMarker>
           }
         })}
       </Map>

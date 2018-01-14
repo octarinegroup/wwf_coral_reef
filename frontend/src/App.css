@@ -27,7 +27,7 @@
   to { transform: rotate(360deg); }
 }
 .actual-map { 
-  margin: 0 auto;
+  margin-left: 12%;
   width: 80%;
-  height: 1200px;
+  height: 500px;
 }

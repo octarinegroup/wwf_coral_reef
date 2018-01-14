@@ -28,9 +28,9 @@ class MapContainer extends Component {
     this.handleFilterYearChange = this.handleFilterYearChange.bind(this)
   }
 
-  handleCoverTypeChange(coverType) {
+  handleCoverTypeChange(e) {
     this.setState({
-      coverType
+      coverType: e.target.value
     })
   }
 

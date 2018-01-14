@@ -1,0 +1,24 @@
+<div >  
+                <Input name="coverSelection" type="radio" value="PercentCoral" label="Percent Coral"
+                            checked={this.props.coverType === 'PercentCoral'} onChange={(e) => this.props.handleCoverTypeChange(e)}/>
+
+                <Input name="coverSelection" type="radio" value="PercentSoftCoral" label="Percent Soft Coral"
+                                checked={this.props.coverType === 'PercentSoftCoral'} onChange={(e) => this.props.handleCoverTypeChange(e)}
+                                />
+
+                <Input name="coverSelection" type="radio" value="PercentCCA" label="Percent CCA"
+                                checked={this.props.coverType === 'PercentCCA'} onChange={(e) => this.props.handleCoverTypeChange(e)}
+                                />
+            
+                <Input name="coverSelection" type="radio" value="PercentBleached" label="Percent Bleached"
+                                    checked={this.props.coverType === 'PercentBleached'} onChange={(e) => this.props.handleCoverTypeChange(e)}
+                                    />
+            
+                <Input name="coverSelection" type="radio" value="PercentRubble" label="Percent Rubble"
+                                        checked={this.props.coverType === 'PercentRubble'} onChange={(e) => this.props.handleCoverTypeChange(e)}
+                                        />
+            
+                <Input name="coverSelection" type="radio" value="PercentOthAlgae" label="Percent Oth Algae"
+                                        checked={this.props.coverType === 'PercentOthAlgae'} onChange={(e) => this.props.handleCoverTypeChange(e)}
+                                        />
+            </div>
