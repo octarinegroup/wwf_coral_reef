@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar brand='World Wildlife Fund' left>
+        <Navbar className='blue-grey darken-4' brand='World Wildlife Fund' left>
           <NavItem href='#'>Welcome!</NavItem>
         </Navbar>
         <MapContainer />

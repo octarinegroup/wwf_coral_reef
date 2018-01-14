@@ -28,13 +28,13 @@ class BenthicMap extends Component {
   }
 
   computeMarkerSize(entry) {
-    console.log('radius is for, ', this.props.coverType);
+    // console.log('radius is for, ', this.props.coverType, entry[this.props.coverType]);
     return entry[this.props.coverType]/2;
   }
  
   render() {
     return (
-      <Map className="actual-map" center={[this.props.benthicData[0].Latitude, this.props.benthicData[0].Longitude]} zoom={13}>
+      <Map center={[this.props.benthicData[0].Latitude, this.props.benthicData[0].Longitude]} zoom={12}>
         <TileLayer
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

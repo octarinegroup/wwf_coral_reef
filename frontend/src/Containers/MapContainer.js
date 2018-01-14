@@ -13,6 +13,7 @@ import {
 import { getBenthicData } from '../actions/services/benthic'
 import BenthicMap from '../Components/BenthicMap/BenthicMap'
 import Sidebar from '../Components/Sidebar/Sidebar'
+import DataTable from '../Components/DataTable/DataTable'
 import './MapContainer.css'
 
 class MapContainer extends Component {
@@ -54,9 +55,14 @@ class MapContainer extends Component {
   render() {
     return (
       this.state.isLoaded ? 
-      <div className="map-container">
-        <Sidebar coverType={this.state.coverType} filterYear={this.state.filterYear} handleCoverTypeChange={this.handleCoverTypeChange} handleFilterYearChange={this.handleFilterYearChange}/>
-        <BenthicMap benthicData={this.state.benthicData} coverType={this.state.coverType} filterYear={this.state.filterYear} />
+      <div>
+        <div className="map-container">
+          <Sidebar coverType={this.state.coverType} filterYear={this.state.filterYear} handleCoverTypeChange={this.handleCoverTypeChange} handleFilterYearChange={this.handleFilterYearChange}/>
+          <BenthicMap benthicData={this.state.benthicData} coverType={this.state.coverType} filterYear={this.state.filterYear} />
+        </div>
+        <div className="data-container">
+          <DataTable benthicData={this.state.benthicData} coverType={this.state.coverType}/>
+        </div>
       </div>
       :
       null

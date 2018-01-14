@@ -3,3 +3,8 @@
     display: flex;
     flex-direction: row;
 }
+.data-container {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 20px;
+}

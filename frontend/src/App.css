@@ -26,8 +26,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-.actual-map { 
-  margin-left: 12%;
-  width: 80%;
-  height: 500px;
-}

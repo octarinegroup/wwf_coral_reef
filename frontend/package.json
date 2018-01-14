@@ -11,7 +11,8 @@
     "react-leaflet-sidebarv2": "^0.5.1",
     "react-materialize": "^1.1.2",
     "react-radio-group": "^3.0.2",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-table": "^6.7.6"
   },
   "scripts": {
     "start": "react-scripts start",
