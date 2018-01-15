@@ -18,13 +18,7 @@ class Sidebar extends Component {
         year: changeEvent.target.value 
     })
   }
-
-//   shouldComponentUpdate() {
-//       return false;
-//   }
- 
   render() {
-      console.log('rendering sidebar..., ', this.props.coverType)
     return (
       <div className="sidebar">
             <form>
@@ -66,9 +60,10 @@ class Sidebar extends Component {
                 </div>
             </form>
             <h6> Set Filter Year: </h6>
-                <Input className='centered-input' type='text' name='year' placeholder={`${this.state.year}`} onChange={this.changeYear} />
-                <Button className='center-submit' waves='light' onClick={() => { this.props.handleFilterYearChange(this.state.year) }}>Submit</Button>
-            
+            <Input className='centered-input' type='text' name='year' placeholder={`${this.state.year}`} onChange={this.changeYear} />
+            <Button className='center-submit' waves='light' onClick={() => { this.props.handleFilterYearChange(this.state.year) }}>Submit</Button>
+            <h6> View Data Grid/Graph: </h6>
+            <Button className='center-submit' waves='light' onClick={this.props.toggleDataGraph}>Toggle</Button>
       </div>
     );
   }

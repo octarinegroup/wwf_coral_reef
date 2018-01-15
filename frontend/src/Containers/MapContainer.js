@@ -14,6 +14,7 @@ import { getBenthicData } from '../actions/services/benthic'
 import BenthicMap from '../Components/BenthicMap/BenthicMap'
 import Sidebar from '../Components/Sidebar/Sidebar'
 import DataTable from '../Components/DataTable/DataTable'
+import Graph from '../Components/Graph/Graph'
 import './MapContainer.css'
 
 class MapContainer extends Component {
@@ -23,45 +24,105 @@ class MapContainer extends Component {
         benthicData: null,
 				isLoaded: false,
 				coverType: 'PercentCoral',
-				filterYear: 2016
+        filterYear: 2016,
+        SEType: 'SECoral',
+        isDataView: true,
+        isFiltered: false,
+        filteredData: null
     };
     this.handleCoverTypeChange = this.handleCoverTypeChange.bind(this)
     this.handleFilterYearChange = this.handleFilterYearChange.bind(this)
+    this.toggleDataGraph = this.toggleDataGraph.bind(this)
+    this.filterRawData = this.filterRawData.bind(this)
+    this.removeDataFilter = this.removeDataFilter.bind(this)
   }
 
   handleCoverTypeChange(e) {
+    let SEType = this.state.coverType;
+
+    switch(e.target.value) {
+      case 'PercentCoral':
+        SEType = 'SECoral'
+        break;
+      case 'PercentSoftCoral':
+        SEType = 'SESoftCoral'
+        break;
+      case 'PercentCCA':
+        SEType = 'SECCA'
+        break;
+      case 'PercentBleached':
+        SEType = 'SEBleached'
+        break;
+      case 'PercentRubble':
+        SEType = 'SERubble'
+        break;
+      case 'PercentOthAlgae':
+        SEType = 'SEOthAlgae'
+        break;
+    }
+
+
     this.setState({
-      coverType: e.target.value
+      coverType: e.target.value,
+      SEType
+    })
+  }
+
+  filterRawData(filteredData) {
+    console.log('filtering, ', filteredData)
+    this.setState({
+      isFiltered: true,
+      filteredData
+    })
+  }
+
+  removeDataFilter() {
+    const data = this.state.benthicData
+    this.setState({
+      isFiltered: false,
+      filteredData: data
     })
   }
 
   handleFilterYearChange(filterYear) {
     this.setState({
-      filterYear
+      filterYear: Number.parseInt(filterYear)
     })
   }
  
+  toggleDataGraph() {
+    this.setState({
+      isDataView: !this.state.isDataView
+    })
+  }
+
   componentDidMount() {
     getBenthicData()
     .then(benthicData => {
-        console.log("benthic data, ", benthicData.data)
         this.setState({
             benthicData: benthicData.data.data,
+            filteredData: benthicData.data.data,
             isLoaded: true
         })
     })
   }
 
   render() {
+  
     return (
       this.state.isLoaded ? 
       <div>
         <div className="map-container">
-          <Sidebar coverType={this.state.coverType} filterYear={this.state.filterYear} handleCoverTypeChange={this.handleCoverTypeChange} handleFilterYearChange={this.handleFilterYearChange}/>
-          <BenthicMap benthicData={this.state.benthicData} coverType={this.state.coverType} filterYear={this.state.filterYear} />
+          <Sidebar toggleDataGraph={this.toggleDataGraph} coverType={this.state.coverType} filterYear={this.state.filterYear} handleCoverTypeChange={this.handleCoverTypeChange} handleFilterYearChange={this.handleFilterYearChange}/>
+          <BenthicMap filterRawData={this.filterRawData} removeDataFilter={this.removeDataFilter} benthicData={this.state.benthicData} coverType={this.state.coverType} filterYear={this.state.filterYear} />
         </div>
-        <div className="data-container">
-          <DataTable benthicData={this.state.benthicData} coverType={this.state.coverType}/>
+        <div className='data-container'>
+          { this.state.isDataView ?
+            <DataTable data={this.state.filteredData} filterYear={this.state.filterYear} isFiltered={this.state.isFiltered}/>
+            :
+            <Graph data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType}filterYear={this.state.filterYear} />
+          }
+          
         </div>
       </div>
       :

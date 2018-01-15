@@ -6,10 +6,24 @@ class DataTable extends Component {
       super(props);
       this.state = {
       };
+
+      this.filterDataByYear = this.filterDataByYear.bind(this)
     }
+
+    filterDataByYear() {
+        let data = []
+        this.props.data.map((entry, i) => {
+            if(entry.Year === this.props.filterYear) {
+                console.log('match')
+                data.push(entry)
+            }
+        })
+        return data;
+    }
+
     render() {
-        console.log('table, ', this.props.coverType);
-        console.log('data, ', this.props.benthicData[0][this.props.coverType])
+        console.log('data, ', this.props.data);
+        const data = this.filterDataByYear()
         const columns = [{
             Header: 'MPA Name',
             accessor: 'MPA_Name'
@@ -26,6 +40,10 @@ class DataTable extends Component {
             accessor: 'Zone' 
         },
         {
+            Header: 'Year',
+            accessor: 'Year' 
+        },
+        {
             Header: this.props.coverType,
             accessor: `${this.props.coverType}`
         }
@@ -33,7 +51,7 @@ class DataTable extends Component {
 
         return (
             <ReactTable
-                data={this.props.benthicData}
+                data={data}
                 columns={columns}
                 defaultPageSize={8}
                 style={{
