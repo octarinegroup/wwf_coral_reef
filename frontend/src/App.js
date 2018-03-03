@@ -5,7 +5,6 @@ import './App.css';
 
 import MapContainer from './Containers/MapContainer'
 
-
 class App extends Component {
   render() {
     return (

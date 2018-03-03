@@ -2,10 +2,20 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    height: 400px;
 }
 
 .data-container {
     margin-left: 12%;
-    width: 80%;
-    margin-top: 5px;
+    width: 70%;
+    margin-top: 20px;
+}
+.graph-item {
+    height: 100%;
+}
+.graph-container {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-around;
 }

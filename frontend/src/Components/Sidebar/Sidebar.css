@@ -4,11 +4,14 @@
     margin-right: 20px;
     width: 10%;
     border: 1px black;
-    height: 400px;
+    height: 500px;
+    padding: 10px;
 }
 
 .center-submit {
     margin-left: 20px;
+    font-size: 10px;
+    margin-top: 20px;
 }
 
 .cover-type-form {

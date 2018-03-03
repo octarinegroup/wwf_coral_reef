@@ -5,6 +5,7 @@
   "dependencies": {
     "leaflet": "^1.2.0",
     "leaflet-draw": "^0.4.13",
+    "material-ui": "^0.20.0",
     "plotly.js": "^1.32.0",
     "point-in-polygon": "^1.0.1",
     "prop-types": "^15.6.0",

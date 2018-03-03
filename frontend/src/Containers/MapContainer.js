@@ -16,6 +16,7 @@ import Sidebar from '../Components/Sidebar/Sidebar'
 import DataTable from '../Components/DataTable/DataTable'
 import Graph from '../Components/Graph/Graph'
 import './MapContainer.css'
+import BenthicTimeSeriesGraph from '../Components/BenthicTimeSeriesGraph/BenthicTimeSeriesGraph';
 
 class MapContainer extends Component {
   constructor(props) {
@@ -113,14 +114,17 @@ class MapContainer extends Component {
       this.state.isLoaded ? 
       <div>
         <div className="map-container">
-          <Sidebar toggleDataGraph={this.toggleDataGraph} coverType={this.state.coverType} filterYear={this.state.filterYear} handleCoverTypeChange={this.handleCoverTypeChange} handleFilterYearChange={this.handleFilterYearChange}/>
+          <Sidebar toggleDataGraph={this.toggleDataGraph} isDataView={this.state.isDataView} coverType={this.state.coverType} filterYear={this.state.filterYear} handleCoverTypeChange={this.handleCoverTypeChange} handleFilterYearChange={this.handleFilterYearChange}/>
           <BenthicMap filterRawData={this.filterRawData} removeDataFilter={this.removeDataFilter} benthicData={this.state.benthicData} coverType={this.state.coverType} filterYear={this.state.filterYear} />
         </div>
         <div className='data-container'>
           { this.state.isDataView ?
-            <DataTable data={this.state.filteredData} filterYear={this.state.filterYear} isFiltered={this.state.isFiltered}/>
+            <DataTable data={this.state.filteredData} coverType={this.state.coverType} filterYear={this.state.filterYear} isFiltered={this.state.isFiltered}/>
             :
-            <Graph data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType}filterYear={this.state.filterYear} />
+            <div className='graph-container'>
+              <Graph className='graph-item' data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
+              <BenthicTimeSeriesGraph className='graph-item' data={this.state.benthicData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear}/>
+            </div>
           }
           
         </div>

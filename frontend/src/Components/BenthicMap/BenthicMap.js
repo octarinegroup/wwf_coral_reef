@@ -36,7 +36,7 @@ class BenthicMap extends Component {
 
   /* Sets the color of circle markers by Zone type. If 'Use', then RED. If 'NTZ', then BLUE. */
   determineMarkerColor(entry) {
-    return entry.Zone === 'Use' ? 'red' : 'blue'
+    return entry.Zone === 'Use' ? 'gray' : 'blue'
   }
 
   computeMarkerSize(entry) {
@@ -162,7 +162,11 @@ class BenthicMap extends Component {
             onDeleteStart={this._onDeleteStart}
             onDeleteStop={this._onDeleteStop}
             draw={{
-              rectangle: false
+              rectangle: false,
+              marker: false,
+              circlemarker: false,
+              circle: false,
+              polyline: false
             }}
           />
         </FeatureGroup>
@@ -170,7 +174,11 @@ class BenthicMap extends Component {
           if ((entry.Latitude !== null) && (entry.Longitude !== null) && (entry.Year === this.props.filterYear)) {
             return <CircleMarker center={[entry.Latitude, entry.Longitude]} color={this.determineMarkerColor(entry)} radius={this.computeMarkerSize(entry)}>
               <Popup>
-                  <span>Radius is for: {this.props.coverType} </span>
+                  <span> 
+                    Value: {entry[this.props.coverType]}, 
+                    Year: {entry.Year}, 
+                    Zone: {entry.Zone}
+                  </span> 
               </Popup>
             </CircleMarker>
           }

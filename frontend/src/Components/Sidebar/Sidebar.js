@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Input, Button } from 'react-materialize';
 import { Radio, RadioGroup } from 'react-radio-group';
+import Slider from 'material-ui/Slider';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './Sidebar.css'
 
@@ -8,22 +10,25 @@ class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        year: props.filterYear
+        year: props.filterYear,
+        yearSlider: props.filterYear
     }
     this.changeYear = this.changeYear.bind(this)
   }
 
-  changeYear(changeEvent) {
+  changeYear(event, value) {
     this.setState({
-        year: changeEvent.target.value 
+        yearSlider: value
     })
+    this.props.handleFilterYearChange(value)
   }
   render() {
     return (
       <div className="sidebar">
             <form>
+                <h5> Cover Type </h5>
                 <div>
-                    <input className="with-gap" type='radio' value='PercentCoral'
+                    <inh6ut className="with-gap" type='radio' value='PercentCoral'
                     checked={this.props.coverType === 'PercentCoral'} id='cover-type-1'
                     onClick={(e) => this.props.handleCoverTypeChange(e)}/>
                     <label htmlFor='cover-type-1'> Percent Coral </label>
@@ -59,11 +64,17 @@ class Sidebar extends Component {
                     <label htmlFor='cover-type-6'> Percent Other Algae </label>
                 </div>
             </form>
-            <h6> Set Filter Year: </h6>
-            <Input className='centered-input' type='text' name='year' placeholder={`${this.state.year}`} onChange={this.changeYear} />
-            <Button className='center-submit' waves='light' onClick={() => { this.props.handleFilterYearChange(this.state.year) }}>Submit</Button>
-            <h6> View Data Grid/Graph: </h6>
-            <Button className='center-submit' waves='light' onClick={this.props.toggleDataGraph}>Toggle</Button>
+            <h5> Filtered Year: </h5>
+            <p> {this.state.yearSlider} </p>
+            <MuiThemeProvider>
+                <Slider 
+                    min={2000}
+                    max={2018}
+                    step={1}
+                    value={this.state.yearSlider} 
+                    onChange={this.changeYear} />
+            </MuiThemeProvider>
+            <Button className='center-submit' waves='light' onClick={this.props.toggleDataGraph}>{this.props.isDataView ? 'View Graph' : 'View Table'}</Button>
       </div>
     );
   }

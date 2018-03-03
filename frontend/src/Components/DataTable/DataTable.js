@@ -14,7 +14,7 @@ class DataTable extends Component {
         let data = []
         this.props.data.map((entry, i) => {
             if(entry.Year === this.props.filterYear) {
-                console.log('match')
+                console.log('match, ', entry)
                 data.push(entry)
             }
         })
@@ -22,7 +22,7 @@ class DataTable extends Component {
     }
 
     render() {
-        console.log('data, ', this.props.data);
+        console.log('data, ', this.props.coverType);
         const data = this.filterDataByYear()
         const columns = [{
             Header: 'MPA Name',
