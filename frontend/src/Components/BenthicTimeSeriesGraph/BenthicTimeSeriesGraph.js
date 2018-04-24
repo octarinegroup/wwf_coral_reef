@@ -2,12 +2,14 @@
 
 import ReactTable from 'react-table'
 import React, { Component } from 'react';
-import Slider from 'material-ui/Slider';
+// import Slider from 'material-ui/Slider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import createPlotlyComponent from 'react-plotly.js/factory';
+import Slider, { Range } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
 import './BenthicTimeSeriesGraph.css'
 const Plot = createPlotlyComponent(Plotly);
-
 
 class BenthicTimeSeriesGraph extends Component {
     constructor(props) {
@@ -18,21 +20,8 @@ class BenthicTimeSeriesGraph extends Component {
       };
 
       this.computeLineGraphData = this.computeLineGraphData.bind(this);
-      this.changeFirstYear = this.changeFirstYear.bind(this);
-      this.changeSecondYear = this.changeSecondYear.bind(this);
+      this.handleSliderChange = this.handleSliderChange.bind(this);
     }
-
-    changeFirstYear(event, value) {
-        this.setState({
-            firstYear: value
-        })
-    }
-
-    changeSecondYear(event, value) {
-        this.setState({
-            secondYear: value
-        })
-      }
 
     // Need to return AVG value per year for the filtered type
     computeLineGraphData(xValues) {
@@ -66,8 +55,15 @@ class BenthicTimeSeriesGraph extends Component {
         for (let i = year1; i <= year2; i++) {
             list.push(i)
         }
-        console.log(list);
         return list
+    }
+
+    handleSliderChange(vals) {
+        console.log('VALS, ', vals)
+        this.setState({
+            firstYear: vals[0],
+            secondYear: vals[1]
+        })
     }
 
     render() {
@@ -96,25 +92,10 @@ class BenthicTimeSeriesGraph extends Component {
                 plot_bgcolor: 'white'
                 }}
             />
-
-            <MuiThemeProvider>
-                <Slider 
-                    min={2000}
-                    max={this.state.secondYear}
-                    step={1}
-                    className="dual-slider"
-                    value={this.state.firstYear} 
-                    onChange={this.changeFirstYear} />
-            <span> Slider value is {this.state.firstYear} </span>
-                <Slider 
-                    min={this.state.firstYear}
-                    max={2018}
-                    step={1}
-                    className="dual-slider"
-                    value={this.state.secondYear} 
-                    onChange={this.changeSecondYear} />
-            </MuiThemeProvider>
-            <span> Slider value is {this.state.secondYear} </span>
+            <p> 
+                Filter years below...{this.state.firstYear} to {this.state.secondYear}
+            </p>
+            <Range min={2010} max={2018} pushable={1} defaultValue={[this.state.firstYear, this.state.secondYear]} tipFormatter={value => `${value}%`} onAfterChange={this.handleSliderChange} />
         </div>
         )
     }

@@ -121,12 +121,11 @@ class MapContainer extends Component {
           { this.state.isDataView ?
             <DataTable data={this.state.filteredData} coverType={this.state.coverType} filterYear={this.state.filterYear} isFiltered={this.state.isFiltered}/>
             :
-            <div className='graph-container'>
-              <Graph className='graph-item' data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
-              <BenthicTimeSeriesGraph className='graph-item' data={this.state.benthicData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear}/>
+            <div className="graph-container">
+              <Graph data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
+              <BenthicTimeSeriesGraph data={this.state.benthicData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear}/>
             </div>
           }
-          
         </div>
       </div>
       :

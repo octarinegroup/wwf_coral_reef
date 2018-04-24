@@ -24,11 +24,11 @@ class Sidebar extends Component {
   }
   render() {
     return (
-      <div className="sidebar">
+      <div className="sidebar-display">
             <form>
                 <h5> Cover Type </h5>
                 <div>
-                    <inh6ut className="with-gap" type='radio' value='PercentCoral'
+                    <input className="with-gap" type='radio' value='PercentCoral'
                     checked={this.props.coverType === 'PercentCoral'} id='cover-type-1'
                     onClick={(e) => this.props.handleCoverTypeChange(e)}/>
                     <label htmlFor='cover-type-1'> Percent Coral </label>

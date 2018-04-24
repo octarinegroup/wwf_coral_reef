@@ -67,6 +67,7 @@ class Graph extends Component {
                   size: 14,
                   color: '#000'
               },
+              height: 400,
               plot_bgcolor: 'white'
             }}
           />
