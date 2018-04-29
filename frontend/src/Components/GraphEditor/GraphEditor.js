@@ -1,6 +1,7 @@
 /* global Plotly:true */
 import React, { Component } from 'react';
 import Graph from '../Graph/Graph';
+import BenthicTimeSeriesGraph from '../BenthicTimeSeriesGraph/BenthicTimeSeriesGraph';
 import './GraphEditor.css';
 
 class GraphEditor extends Component {
@@ -64,8 +65,16 @@ class GraphEditor extends Component {
                     </form>
                 </div>
                 {this.props.graphType === 'bar' && 
-                    <Graph 
-                        data={data} 
+                    <Graph data={data} 
+                        coverType={coverType} 
+                        isFiltered={isFiltered} 
+                        SEType={SEType} 
+                        filterYear={filterYear}
+                        graphTitle={this.state.graphTitle}
+                        xAxisTitle={this.state.xAxisTitle}
+                        yAxisTitle={this.state.yAxisTitle} />}
+                {this.props.graphType === 'line_two_years' && 
+                    <BenthicTimeSeriesGraph data={data} 
                         coverType={coverType} 
                         isFiltered={isFiltered} 
                         SEType={SEType} 

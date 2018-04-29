@@ -69,7 +69,7 @@ class BenthicTimeSeriesGraph extends Component {
     render() {
         const xValues = this.generateXValues(this.state.firstYear, this.state.secondYear)
         const [properXValues, yValues] = this.computeLineGraphData(xValues);
-    
+        const graphTitle = this.props.graphTitle ? this.props.graphTitle : `Time Series Trend for ${this.props.coverType} Between ${this.state.firstYear} and ${this.state.secondYear}`
         console.log('vals, ', xValues, yValues);
         return (
             <div className='timeseries-graph'>
@@ -83,13 +83,19 @@ class BenthicTimeSeriesGraph extends Component {
                 ]}
         
                 layout={{
-                title: `Time Series Trend for ${this.props.coverType} Between ${this.state.firstYear} and ${this.state.secondYear}`,
-                font: {
-                    family: 'Arial',
-                    size: 14,
-                    color: '#000'
-                },
-                plot_bgcolor: 'white'
+                    title: graphTitle,
+                    font: {
+                        family: 'Arial',
+                        size: 14,
+                        color: '#000'
+                    },
+                    xaxis: {
+                        title: this.props.xAxisTitle
+                    },
+                    yaxis: {
+                        title: this.props.yAxisTitle
+                    },
+                    plot_bgcolor: 'white'
                 }}
             />
             <p> 

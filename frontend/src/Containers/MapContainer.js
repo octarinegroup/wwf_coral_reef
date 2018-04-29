@@ -127,6 +127,12 @@ class MapContainer extends Component {
       showDataView: true,
       isDataView: false,
       graphType: graphType
+    }, () => {
+      if (!this.state.sidebarCollapsed) {
+        this.toggleSidebar()
+      } else if(!this.state.showDataView) {
+        this.toggleSidebar()
+      }
     })
   }
 
@@ -145,11 +151,7 @@ class MapContainer extends Component {
     const dataView = this.state.isDataView ?
       <DataTable data={this.state.filteredData} coverType={this.state.coverType} filterYear={this.state.filterYear} isFiltered={this.state.isFiltered} />
       :
-      <div className="graph-container">
-        <GraphEditor graphType={this.state.graphType} data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
-        {/* <Graph data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
-        <BenthicTimeSeriesGraph data={this.state.benthicData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} /> */}
-      </div>
+      <GraphEditor graphType={this.state.graphType} data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
     return (
       this.state.isLoaded ?
         <div className="map-container-wrapper">

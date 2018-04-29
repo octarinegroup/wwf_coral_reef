@@ -6,13 +6,7 @@ import './GraphsSidebar.css'
 
 const graphTypes = [
   { id: 1, name: 'bar', icon: 'graphic_eq' },
-  { id: 2, name: 'line', icon: 'graphic_eq' },
-  { id: 3, name: 'graph3', icon: 'graphic_eq' },
-  { id: 4, name: 'graph4', icon: 'graphic_eq' },
-  { id: 5, name: 'graph5', icon: 'graphic_eq' },
-  { id: 6, name: 'graph6', icon: 'graphic_eq' },
-  { id: 7, name: 'graph7', icon: 'graphic_eq' },
-  { id: 8, name: 'graph8', icon: 'graphic_eq' },
+  { id: 2, name: 'line_two_years', icon: 'graphic_eq' }
 ]
 
 export const GraphsSidebar = props => {

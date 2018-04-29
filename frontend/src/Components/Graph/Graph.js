@@ -61,7 +61,7 @@ class Graph extends Component {
             ]}
       
             layout={{
-              title: `${this.props.graphTitle}`,
+              title: this.props.graphTitle,
               font: {
                   family: 'Arial',
                   size: 14,
