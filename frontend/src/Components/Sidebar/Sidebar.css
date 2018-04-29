@@ -1,14 +1,31 @@
 .sidebar-display {
-    height: 100%;
+    width: 20%;
     padding: 25px;
+    top: 6em;
+    left: 0;
     position: absolute;
     z-index: 1000;
+    background-color: rgba(255,255,255,0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bg-for-data-sidebar {
+    z-index: 100000000000000;
+    background-color: #fff;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.2);
+}
+
+.sidebar-display form {
+    margin: 0 auto;
 }
 
 .center-submit {
-    margin-left: 20px;
+    /* margin-left: 50%; */
+    /* transform: translate(-50%); */
+    /* margin-top: 20px; */
     font-size: 10px;
-    margin-top: 20px;
 }
 
 .cover-type-form {
@@ -17,4 +34,43 @@
 
 .centered-input {
     text-align: center;
+}
+
+.sidebar-arrow {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    top: .5em;
+    right: .5em;
+}
+
+.sidebar-arrow:hover {
+    cursor: pointer;
+}
+
+.sidebar-filter-wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.sidebar-collapsed-wrapper {
+    background-color: rgba(255,255,255,0.75);
+    position: absolute;
+    top: 5em;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: .5em;
+    font-size: 1.2rem;
+}
+
+.sidebar-collapsed-wrapper div {
+    margin: 0 .5em 0 0;
+}
+
+.sidebar-collapsed-wrapper:hover {
+    cursor: pointer;
 }
