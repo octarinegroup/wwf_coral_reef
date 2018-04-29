@@ -61,11 +61,17 @@ class Graph extends Component {
             ]}
       
             layout={{
-              title: `Comparison of Use/NTZ Data for ${this.props.coverType} in ${this.props.filterYear}`,
+              title: `${this.props.graphTitle}`,
               font: {
                   family: 'Arial',
                   size: 14,
                   color: '#000'
+              },
+              xaxis: {
+                title: this.props.xAxisTitle
+              },
+              yaxis: {
+                title: this.props.yAxisTitle
               },
               height: 400,
               plot_bgcolor: 'white'

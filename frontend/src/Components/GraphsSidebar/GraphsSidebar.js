@@ -5,8 +5,8 @@ import ReactTooltip from 'react-tooltip'
 import './GraphsSidebar.css'
 
 const graphTypes = [
-  { id: 1, name: 'graph1', icon: 'graphic_eq' },
-  { id: 2, name: 'graph2', icon: 'graphic_eq' },
+  { id: 1, name: 'bar', icon: 'graphic_eq' },
+  { id: 2, name: 'line', icon: 'graphic_eq' },
   { id: 3, name: 'graph3', icon: 'graphic_eq' },
   { id: 4, name: 'graph4', icon: 'graphic_eq' },
   { id: 5, name: 'graph5', icon: 'graphic_eq' },
@@ -17,7 +17,7 @@ const graphTypes = [
 
 export const GraphsSidebar = props => {
   const items = graphTypes.map(type => (
-    <div data-tip data-for={type.name} className="graph-sidebar-item-wrapper valign-wrapper" key={type.id}>
+    <div data-tip data-for={type.name} className="graph-sidebar-item-wrapper valign-wrapper" key={type.id} onClick={() => props.showGraphEditor(type.name)}> 
       <i className="material-icons">{type.icon}</i>
       <ReactTooltip 
         id={type.name} 

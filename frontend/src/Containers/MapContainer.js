@@ -14,9 +14,8 @@ import { getBenthicData } from '../actions/services/benthic'
 import BenthicMap from '../Components/BenthicMap/BenthicMap'
 import Sidebar from '../Components/Sidebar/Sidebar'
 import DataTable from '../Components/DataTable/DataTable'
-import Graph from '../Components/Graph/Graph'
+import GraphEditor from '../Components/GraphEditor/GraphEditor'
 import './MapContainer.css'
-import BenthicTimeSeriesGraph from '../Components/BenthicTimeSeriesGraph/BenthicTimeSeriesGraph'
 import { SidebarCollapsed } from '../Components/Sidebar/SidebarCollapsed'
 import { GraphsSidebar } from '../Components/GraphsSidebar/GraphsSidebar'
 
@@ -33,7 +32,8 @@ class MapContainer extends Component {
       isFiltered: false,
       filteredData: null,
       sidebarCollapsed: false,
-      showDataView: false
+      showDataView: false,
+      graphType: 'bar'
     };
     this.handleCoverTypeChange = this.handleCoverTypeChange.bind(this)
     this.handleFilterYearChange = this.handleFilterYearChange.bind(this)
@@ -42,6 +42,7 @@ class MapContainer extends Component {
     this.removeDataFilter = this.removeDataFilter.bind(this)
     this.toggleSidebar = this.toggleSidebar.bind(this)
     this.toggleShowData = this.toggleShowData.bind(this)
+    this.showGraphEditor = this.showGraphEditor.bind(this)
   }
 
   handleCoverTypeChange(e) {
@@ -76,7 +77,6 @@ class MapContainer extends Component {
   }
 
   filterRawData(filteredData) {
-    console.log('filtering, ', filteredData)
     this.setState({
       isFiltered: true,
       filteredData
@@ -121,6 +121,15 @@ class MapContainer extends Component {
     })
   }
 
+
+  showGraphEditor(graphType) {
+    this.setState({
+      showDataView: true,
+      isDataView: false,
+      graphType: graphType
+    })
+  }
+
   componentDidMount() {
     getBenthicData()
       .then(benthicData => {
@@ -137,8 +146,9 @@ class MapContainer extends Component {
       <DataTable data={this.state.filteredData} coverType={this.state.coverType} filterYear={this.state.filterYear} isFiltered={this.state.isFiltered} />
       :
       <div className="graph-container">
-        <Graph data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
-        <BenthicTimeSeriesGraph data={this.state.benthicData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
+        <GraphEditor graphType={this.state.graphType} data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
+        {/* <Graph data={this.state.filteredData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} />
+        <BenthicTimeSeriesGraph data={this.state.benthicData} coverType={this.state.coverType} isFiltered={this.state.isFiltered} SEType={this.state.SEType} filterYear={this.state.filterYear} /> */}
       </div>
     return (
       this.state.isLoaded ?
@@ -164,7 +174,7 @@ class MapContainer extends Component {
             coverType={this.state.coverType}
             filterYear={this.state.filterYear}
           />
-          <GraphsSidebar showDataView={this.state.showDataView} />
+          <GraphsSidebar showDataView={this.state.showDataView} showGraphEditor={this.showGraphEditor} />
           <div className='data-container'>
             {
               this.state.showDataView ?
