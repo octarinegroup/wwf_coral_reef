@@ -18,6 +18,7 @@ import GraphEditor from '../Components/GraphEditor/GraphEditor'
 import './MapContainer.css'
 import { SidebarCollapsed } from '../Components/Sidebar/SidebarCollapsed'
 import { GraphsSidebar } from '../Components/GraphsSidebar/GraphsSidebar'
+import { Footer } from '../Components/Footer/Footer'
 
 class MapContainer extends Component {
   constructor(props) {
@@ -115,7 +116,7 @@ class MapContainer extends Component {
     }, () => {
       if (!this.state.sidebarCollapsed) {
         this.toggleSidebar()
-      } else if(!this.state.showDataView) {
+      } else if (!this.state.showDataView) {
         this.toggleSidebar()
       }
     })
@@ -130,7 +131,7 @@ class MapContainer extends Component {
     }, () => {
       if (!this.state.sidebarCollapsed) {
         this.toggleSidebar()
-      } else if(!this.state.showDataView) {
+      } else if (!this.state.showDataView) {
         this.toggleSidebar()
       }
     })
@@ -200,6 +201,7 @@ class MapContainer extends Component {
                 : null
             }
           </div>
+          <Footer history={this.props.history} />
         </div>
         :
         null

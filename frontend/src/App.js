@@ -5,6 +5,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import MapContainer from './Containers/MapContainer'
+import HomeContainer from './Containers/HomeContainer'
+import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -13,8 +15,16 @@ class App extends Component {
         {/* <Navbar className='blue-grey darken-4' brand='World Wildlife Fund' left>
           <NavItem href='#'>Welcome!</NavItem>
         </Navbar> */}
-        <MapContainer />
-        <Footer />
+        {/* <MapContainer /> */}
+        <Switch>
+          <Route exact
+            path="/"
+            render={() => <HomeContainer />}
+          />
+          <Route path="/map"
+            render={() => <MapContainer history={this.props.history} />}
+          />
+        </Switch>
       </div>
     );
   }
