@@ -8,5 +8,11 @@ import registerServiceWorker from './registerServiceWorker';
 
 const history = createBrowserHistory()
 
-ReactDOM.render(<BrowserRouter><App history={history} /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <App history={history} />
+    </BrowserRouter>,
+    document.getElementById('root')
+);
+
 registerServiceWorker();

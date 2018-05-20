@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "derekwarren",
-    "password": null,
+    "username": "postgres",
+    "password": "postgres",
     "database": "coral_reef_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
