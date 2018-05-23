@@ -184,22 +184,22 @@ class MapContainer extends Component {
                 dataView
                 : null
             }
-            <div
-              className={`data-view-show ${this.state.showDataView ? 'top-right' : ''}`}
-              onClick={this.toggleShowData}
-            >
-              {this.state.showDataView ? 'Hide' : 'Show'} Data
-            </div>
             {
               this.state.showDataView ?
                 <div
-                  className={`data-view-show ${this.state.showDataView ? 'top-left' : ''}`}
+                  className={`data-view-show ${this.state.showDataView ? 'top-right' : ''}`}
                   onClick={this.toggleDataGraph}
                 >
                   Show {this.state.isDataView ? 'Graph' : 'Table'}
                 </div>
                 : null
             }
+            <div
+              className={`data-view-show ${this.state.showDataView ? 'top-left' : ''}`}
+              onClick={this.toggleShowData}
+            >
+              {this.state.showDataView ? 'Hide' : 'Show'} Data
+            </div>
           </div>
           <Footer history={this.props.history} />
         </div>
