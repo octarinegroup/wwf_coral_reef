@@ -55,7 +55,7 @@ class DataTable extends Component {
                 columns={columns}
                 defaultPageSize={8}
                 style={{
-                    height: "550px"
+                    height: "430px"
                 }}
             />
         )

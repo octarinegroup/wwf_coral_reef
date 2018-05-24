@@ -12,7 +12,6 @@ import {
 } from 'react-leaflet'
 import { EditControl } from "react-leaflet-draw"
 import { getBenthicData } from '../../actions/services/benthic'
-
 class BenthicMap extends Component {
   constructor(props) {
     super(props);
@@ -174,11 +173,12 @@ class BenthicMap extends Component {
           if ((entry.Latitude !== null) && (entry.Longitude !== null) && (entry.Year === this.props.filterYear)) {
             return <CircleMarker center={[entry.Latitude, entry.Longitude]} color={this.determineMarkerColor(entry)} radius={this.computeMarkerSize(entry)}>
               <Popup>
-                  <span> 
-                    Value: {entry[this.props.coverType]}, 
-                    Year: {entry.Year}, 
-                    Zone: {entry.Zone}
-                  </span> 
+                  <p> 
+                    Site Name: {entry.Site_Name} <br />
+                    Value: {entry[this.props.coverType]} <br />
+                    Zone: {entry.Zone} <br />
+                    Year: {entry.Year}
+                  </p> 
               </Popup>
             </CircleMarker>
           }

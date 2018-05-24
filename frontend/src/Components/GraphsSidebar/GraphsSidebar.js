@@ -5,8 +5,8 @@ import ReactTooltip from 'react-tooltip'
 import './GraphsSidebar.css'
 
 const graphTypes = [
-  { id: 1, name: 'bar', icon: 'graphic_eq' },
-  { id: 2, name: 'line_two_years', icon: 'graphic_eq' }
+  { id: 1, name: 'Bar Graph', icon: 'sort' },
+  { id: 2, name: 'Line Graph (2 years)', icon: 'timeline' }
 ]
 
 export const GraphsSidebar = props => {
@@ -25,8 +25,16 @@ export const GraphsSidebar = props => {
     </div>
   ))
   return (
-    <div className={`graph-sidebar-wrapper ${props.showDataView ? 'bg-for-data' : ''}`}>
-      {items}
+    <div>
+      <div className={`graph-sidebar-wrapper ${props.showDataView ? 'bg-for-data' : ''}`}>
+        {items}
+      </div>
+      <div className='legend-wrapper'>
+        <ul style={{"width":"70%"}}>
+          <li style={{"display": "flex", "justify-content":"space-between"}}><div className='legend blue'></div>Use</li>
+          <li style={{"display": "flex", "justify-content":"space-between"}}><div className='legend grey'></div>NTZ</li>
+        </ul>
     </div>
+  </div>
   )
 }

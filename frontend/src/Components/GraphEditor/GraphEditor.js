@@ -39,32 +39,32 @@ class GraphEditor extends Component {
         const { data, coverType, isFiltered, SEType, filterYear } = this.props
         return (
             <div class='graph-editor'>
-                <div>
+                <div style={{"padding": "2rem 3rem 3rem 3rem"}}>
                     <form>
                         <h5> Graph Details </h5>
                         <div>
                             <div>
-                                <span> Graph Title: </span>
+                                <span> Graph Title </span>
                                 <input className="with-gap" type='text' value={this.state.graphTitle}
-                                    id='graph-title'
+                                    id='graph-title' placeholder='Enter graph title'
                                     onChange={this.handleGraphTitleChange} />
                             </div>
                             <div>
-                                <span> X-Axis Title: </span>
+                                <span> X-Axis Title </span>
                                 <input className="with-gap" type='text' value={this.state.xAxisTitle}
-                                    id='x-axis-title'
+                                    id='x-axis-title' placeholder='Enter x-axis label'
                                     onChange={this.handleXAxisChange} />
                             </div>
                             <div>
-                                <span> Y-Axis Title: </span>
+                                <span> Y-Axis Title </span>
                                 <input className="with-gap" type='text' value={this.state.yAxisTitle}
-                                    id='y-axis-title'
+                                    id='y-axis-title' placeholder='Enter y-axis label'
                                     onChange={this.handleYaxisChange} />
                             </div>
                         </div>
                     </form>
                 </div>
-                {this.props.graphType === 'bar' && 
+                {this.props.graphType === 'Bar Graph' && 
                     <Graph data={data} 
                         coverType={coverType} 
                         isFiltered={isFiltered} 
@@ -73,7 +73,7 @@ class GraphEditor extends Component {
                         graphTitle={this.state.graphTitle}
                         xAxisTitle={this.state.xAxisTitle}
                         yAxisTitle={this.state.yAxisTitle} />}
-                {this.props.graphType === 'line_two_years' && 
+                {this.props.graphType === 'Line Graph (2 years)' && 
                     <BenthicTimeSeriesGraph data={data} 
                         coverType={coverType} 
                         isFiltered={isFiltered} 

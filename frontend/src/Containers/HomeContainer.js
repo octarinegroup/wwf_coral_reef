@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar } from '../Components/Navbar/Navbar'
 
+import './HomeContainer.css'
 class HomeContainer extends Component {
   constructor(props) {
     super(props)
@@ -12,7 +13,11 @@ class HomeContainer extends Component {
     return (
       <div>
         <Navbar />
-        Home
+        <div class='home-container'>
+          <span>
+            Coral Reef Data Visualization Demo
+          </span>
+        </div>
       </div>
     )
   }

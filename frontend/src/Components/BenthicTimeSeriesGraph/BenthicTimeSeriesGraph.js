@@ -70,7 +70,7 @@ class BenthicTimeSeriesGraph extends Component {
         const xValues = this.generateXValues(this.state.firstYear, this.state.secondYear)
         const [properXValues, yValues] = this.computeLineGraphData(xValues);
         const graphTitle = this.props.graphTitle ? this.props.graphTitle : `Time Series Trend for ${this.props.coverType} Between ${this.state.firstYear} and ${this.state.secondYear}`
-        console.log('vals, ', xValues, yValues);
+        // console.log('vals, ', xValues, yValues);
         return (
             <div className='timeseries-graph'>
                 <Plot
@@ -90,7 +90,8 @@ class BenthicTimeSeriesGraph extends Component {
                         color: '#000'
                     },
                     xaxis: {
-                        title: this.props.xAxisTitle
+                        title: this.props.xAxisTitle,
+                        tickformat: 'd'
                     },
                     yaxis: {
                         title: this.props.yAxisTitle

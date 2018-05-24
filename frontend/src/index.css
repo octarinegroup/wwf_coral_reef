@@ -7,3 +7,22 @@ body {
 label {
   color: #000;
 }
+
+.legend-wrapper {
+  position: absolute;
+  top: 16em;
+  right: 0.7em;
+  padding: 1rem 0rem 0rem 1rem;
+  background-color: rgba(255,255,255,0.75);
+  height: 100px;
+  width: 100px;
+}
+
+.legend {
+  width: 20px;
+  height: 20px;
+}
+
+.svg-container {
+  height: 400px !important;
+}
