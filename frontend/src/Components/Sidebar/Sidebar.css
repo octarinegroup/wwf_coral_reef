@@ -1,6 +1,6 @@
 .sidebar-display {
-    width: 20%;
-    padding: 25px;
+    width: 15%;
+    padding: 20px;
     top: 6em;
     left: 0.7em;
     position: absolute;
@@ -19,6 +19,7 @@
 
 .sidebar-display form {
     margin: 0 auto;
+    width: 70%;
 }
 
 .center-submit {
@@ -50,7 +51,7 @@
 }
 
 .sidebar-filter-wrapper {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
 }
 
