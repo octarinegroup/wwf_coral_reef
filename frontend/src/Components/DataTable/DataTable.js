@@ -1,6 +1,7 @@
 import ReactTable from 'react-table'
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
+import {CSVLink, CSVDownload} from 'react-csv'
+import './DataTable.css'
 class DataTable extends Component {
     constructor(props) {
       super(props);
@@ -50,14 +51,17 @@ class DataTable extends Component {
     ]
 
         return (
-            <ReactTable
-                data={data}
-                columns={columns}
-                defaultPageSize={8}
-                style={{
-                    height: "430px"
-                }}
-            />
+            <div>
+                <CSVLink data={data} filename="sample_benthic_data.csv">Download CSV</CSVLink>
+                <ReactTable
+                    data={data}
+                    columns={columns}
+                    defaultPageSize={8}
+                    style={{
+                        height: "430px"
+                    }}
+                />
+            </div>
         )
     }
 }
