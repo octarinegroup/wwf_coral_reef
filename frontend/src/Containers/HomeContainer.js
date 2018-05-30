@@ -18,6 +18,9 @@ class HomeContainer extends Component {
             Coral Reef Data Visualization Demo
           </span>
         </div>
+        {/* <div className="home-container-association valign-wrapper">
+          In association with <img src="/images/wcs_logo.png" alt="wcs" />
+        </div> */}
       </div>
     )
   }

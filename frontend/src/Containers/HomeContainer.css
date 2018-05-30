@@ -11,3 +11,15 @@
     margin: 0 auto;
     font-size: 7rem;
 }
+
+.home-container-association {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    font-style: italic;
+}
+
+.home-container-association img {
+    max-height: 2em;
+    padding-left: 5px;
+}
