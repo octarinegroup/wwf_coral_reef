@@ -34,7 +34,9 @@ Below are installation instructions, and expects that you have `npm`, `node`, an
 
 The frontend is in React. We distinguish between containers and components; API calls, etc. are handled at the container level and are passed down to components which handle the presentation of that information. 
 
-We only include two types of graphs at the moment, a bar graph and a line graph. This was based on the initial requirements, but do note that we're comfortable developing a feature-rich graph editor to support different types of reports, given the flexibility that `plotly` provides.
+This structure also makes it easy to create separate views if needed, whether that's for user profiles, user specific reports from the past, toggling between types of dataset (`fish` vs. `benthic`), and so on.
+
+We only include two types of graphs at the moment, a bar graph and a line graph. This was based on the initial requirements, but we can support a feature-rich graph editor to support different types of reports, given the flexibility that `plotly` provides.
 
 We intended to use `redux` but decided it was excessive for a proof of concept; it can easily be configured in if needed, depending on the defined scope of the project.
 
