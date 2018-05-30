@@ -18,3 +18,9 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+
+.footer-wrapper a img {
+  max-height: 2em;
+  padding-left: 12px;
+  opacity: .7;
+}

@@ -5,6 +5,6 @@ import './Footer.css'
 
 export const Footer = props => (
   <div className="footer-wrapper">
-    <Link to="/">World Wildlife Fund</Link>
+    <Link to="/" className="valign-wrapper">World Wildlife Fund <img src="/images/wwf_logo.png" alt="wwf" /></Link>
   </div>
 )
