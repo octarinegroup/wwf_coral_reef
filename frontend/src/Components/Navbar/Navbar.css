@@ -1,7 +1,20 @@
 .nav-wrapper {
-    padding: 0.3rem;
+    /* padding: 0.3rem; */
 }
 
 .darknav {
     background-color: #334A51 !important;
+}
+
+.brand-logo {
+    position: relative !important;
+}
+
+.brand-logo img {
+    max-height: 2em;
+    padding: 6px 1em;
+}
+
+nav {
+    /* height: 74px; */
 }
