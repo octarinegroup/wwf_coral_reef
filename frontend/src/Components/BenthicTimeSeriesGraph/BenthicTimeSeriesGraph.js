@@ -59,7 +59,6 @@ class BenthicTimeSeriesGraph extends Component {
     }
 
     handleSliderChange(vals) {
-        console.log('VALS, ', vals)
         this.setState({
             firstYear: vals[0],
             secondYear: vals[1]
@@ -70,7 +69,6 @@ class BenthicTimeSeriesGraph extends Component {
         const xValues = this.generateXValues(this.state.firstYear, this.state.secondYear)
         const [properXValues, yValues] = this.computeLineGraphData(xValues);
         const graphTitle = this.props.graphTitle ? this.props.graphTitle : `Time Series Trend for ${this.props.coverType} Between ${this.state.firstYear} and ${this.state.secondYear}`
-        // console.log('vals, ', xValues, yValues);
         return (
             <div className='timeseries-graph'>
                 <Plot

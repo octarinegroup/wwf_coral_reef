@@ -73,9 +73,6 @@ class BenthicMap extends Component {
   }
 
   _onChange = () => {
-
-    // this._editableFG contains the edited geometry, which can be manipulated through the leaflet API
-
     console.log('on change');
   }
 
@@ -94,7 +91,6 @@ class BenthicMap extends Component {
     let type = e.layerType;
     let layer = e.layer;
     if (type === 'marker') {
-      // Do marker specific actions
       console.log("_onCreated: marker created", e);
     }
     else {
@@ -107,7 +103,6 @@ class BenthicMap extends Component {
 
       this.filterDataByPolygon(polygonBoundary)
     }
-    // Do whatever else you need to. (save to db; etc)
 
     this._onChange();
   }
