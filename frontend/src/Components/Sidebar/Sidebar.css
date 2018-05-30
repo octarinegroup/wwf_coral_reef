@@ -1,5 +1,5 @@
 .sidebar-display {
-    width: 15%;
+    width: 23%;
     padding: 20px;
     top: 6em;
     left: 0.7em;
@@ -53,6 +53,10 @@
 .sidebar-filter-wrapper {
     width: 70%;
     margin: 0 auto;
+}
+
+.sidebar-filter-wrapper div {
+    margin-bottom: 0 !important;
 }
 
 .sidebar-collapsed-wrapper {
